@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://s3.ap-northeast-2.amazonaws.com/materials.spartacodingclub.kr/easygpt/default.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+ 
     <style>
         /* 꾸미기 */
         .card {
@@ -18,11 +19,11 @@
             transform: scale(1.05);
         }
         .card {
-        margin-bottom: 20px; /* 카드와 카드 사이의 간격 조절 */
+        margin-bottom: 10px; /* 카드와 카드 사이의 간격 조절 */
         }
 
         .card-body {
-        margin-top: 20px; /* 카드와 카드 바디 사이의 간격 조절 */
+        margin-top: 10px; /* 카드와 카드 바디 사이의 간격 조절 */
             }
 
         /* 추가한 스타일 */
@@ -49,19 +50,49 @@
 
         
     </style>
+<script>
+  function changeImage(id) {
+    // 해당 id에 해당하는 이미지 태그 가져오기
+    var img = document.getElementById(id);
+  
+    // 이미지 소스(src) 변경
+    if (id == "pink") {
+      img.src = "pink_hover.jpg";
+    } else if (id == "gray") {
+      img.src = "gray_hover.jpg";
+    } else if (id == "black") {
+      img.src = "black_hover.jpg";
+    } else if (id == "white") {
+      img.src = "white_hover.jpg";
+    }
+  }
+
+  // 이미지 원상태로 변경
+  function changeOriginalImage(img) {
+  if (img.id == "pink") {
+    img.src = "pink.jpg";
+  } else if (img.id == "gray") {
+    img.src = "gray.jpg";
+  } else if (img.id == "black") {
+    img.src = "black.jpg";
+  } else if (img.id == "white") {
+    img.src = "white.jpg";
+  }
+}
+  </script>
 </head>
 
 <body>
     <div class="hero bg-dark text-center py-5">
         <h1 class="text-white">퍼스트펭귄커피컴퍼니</h1>
-        <h2 class="text-white">도 소매 블렌드</h2>
+        <h2 class="text-white">도/소매 블렌드</h2>
     </div>
     
       <div class="container my-5"> <!-- 공백 추가 -->
         <div class="row">
           <div class="col-md-6 mb-4">
             <div class="card">
-              <img src="pink.jpg" class="card-img-top" alt="핑크">
+              <img id="pink" src="pink.jpg" class="card-img-top" alt="핑크" onmouseover="changeImage(this.id)" onmouseout="changeOriginalImage(this)">
               <div class="card-body">
                 <h5 class="card-title">핑크</h5>
                 <h6 class="card-subtitle mb-2 text-muted">판매가격에 따른 추천 : 4,000원 이상</h6>
@@ -72,7 +103,7 @@
           </div>
           <div class="col-md-6 mb-4">
             <div class="card">
-              <img src="gray.jpg" class="card-img-top" alt="그레이">
+              <img id="gray" src="gray.jpg" class="card-img-top" alt="그레이" onmouseover="changeImage(this.id)" onmouseout="changeOriginalImage(this)">
               <div class="card-body">
                 <h5 class="card-title">그레이</h5>
                 <h6 class="card-subtitle mb-2 text-muted">판매가격에 따른 추천 : 4,000원 이상</h6>
@@ -83,7 +114,7 @@
           </div>
           <div class="col-md-6 mb-4">
             <div class="card">
-              <img src="black.jpg" class="card-img-top" alt="블랙">
+              <img id="black" src="black.jpg" class="card-img-top" alt="블랙" onmouseover="changeImage(this.id)" onmouseout="changeOriginalImage(this)">
               <div class="card-body">
                 <h5 class="card-title">블랙</h5>
                 <h6 class="card-subtitle mb-2 text-muted">판매가격에 따른 추천 : 3,000원 이상</h6>
@@ -94,7 +125,7 @@
           </div>
           <div class="col-md-6 mb-4">
             <div class="card">
-                <img src="white.jpg" class="card-img-top" alt="화이트">
+                <img id="white" src="white.jpg" class="card-img-top" alt="화이트" onmouseover="changeImage(this.id)" onmouseout="changeOriginalImage(this)">
                 <div class="card-body">
                     <h5 class="card-title">화이트</h5>
                     <h6 class="card-subtitle mb-2 text-muted">판매가격에 따른 추천 : 1,500원 이상</h6>
@@ -103,11 +134,9 @@
                 </div>
             </div>
             <div class="card-whole">
-                <div class="card-whole>
                 <h5 class="card-wtitle">블렌드 납품상담</h5>
                 <a href="https://www.instagram.com/just.few_more" class="icon-link"><img src="instagram.png" alt="Instagram Icon"></a>
                 <a href="https://open.kakao.com/o/snlfyhne" class="icon-link"><img src="kakao.png" alt="Kakao Icon"></a>
-                </div>
             </div>
         </div>
       </div>
