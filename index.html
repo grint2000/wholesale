@@ -16,8 +16,10 @@ button.nav-toggle{display:none;background:none;border:none;color:#fff;font-size:
 
 /* Hero 섹션 */
 #hero{background:url('hero.jpg') center/cover no-repeat;color:#fff;text-align:center;padding:80px 20px;}
-#hero h1{font-size:2rem;margin-bottom:0.5rem;color:#000;background:rgba(255,255,255,0.8);display:inline-block;padding:4px 8px;border-radius:4px;}
-#hero h2{font-size:1.2rem;margin-bottom:1rem;color:#000;background:rgba(255,255,255,0.8);display:inline-block;padding:4px 8px;border-radius:4px;}
+#hero h1{font-size:2rem;margin-bottom:0.5rem;color:#000;background:rgba(255,255,255,0.8);padding:4px 8px;border-radius:4px;}
+#hero h2{font-size:1.2rem;margin-bottom:1rem;color:#000;background:rgba(255,255,255,0.8);padding:4px 8px;border-radius:4px;}
+.hero-line{opacity:0;display:block;transition:opacity 0.5s;}
+.hero-line.show{opacity:1;}
 #hero .btn{display:inline-block;padding:10px 20px;background:#fff;color:#333;text-decoration:none;border-radius:4px;font-weight:bold;}
 
 /* 블렌드 카드 */
@@ -61,6 +63,13 @@ function changeOriginalImage(img){
   if(img.id==='black'){img.src='black.jpg';}
   else if(img.id==='noff'){img.src='noff.jpg';}
 }
+// 히어로 문구 순차 노출
+window.addEventListener('load',function(){
+  var lines=document.querySelectorAll('.hero-line');
+  lines.forEach(function(line,idx){
+    setTimeout(function(){line.classList.add('show');},idx*1000);
+  });
+});
 </script>
 </head>
 <body>
@@ -77,8 +86,8 @@ function changeOriginalImage(img){
 </header>
 <!-- 히어로 영역 -->
 <section id="hero">
-  <h1>퍼스트펭귄 커피 컴퍼니</h1>
-  <h2>2016년 설립 이래 도매·맞춤 로스팅</h2>
+  <h1 class="hero-line">퍼스트펭귄 커피 컴퍼니</h1>
+  <h2 class="hero-line">2016년 설립 이래 도매·맞춤 로스팅</h2>
   <a href="#blends" class="btn">블렌드 보기</a>
 </section>
 <!-- 블렌드 소개 영역 -->
@@ -86,10 +95,9 @@ function changeOriginalImage(img){
   <div class="blend-cards">
     <div class="card">
       <img src="black.jpg" id="black" alt="Black Blend" onmouseover="changeImage('black')" onmouseout="changeOriginalImage(this)" onclick="changeImage('black')" ontouchstart="changeImage('black')" ontouchend="changeOriginalImage(this)">
-      <h4>Black Blend</h4>
+      <h4>BLACK Blend</h4>
       <p>Brazil 60%, Colombia 40%</p>
       <p>낮은 산미, 고소함, 달콤한 여운</p>
-      <p>컵당 ≥₩2,000 판매 카페용</p>
       <a href="https://open.kakao.com/o/snlfyhne" class="btn">샘플 요청</a>
     </div>
     <div class="card">
